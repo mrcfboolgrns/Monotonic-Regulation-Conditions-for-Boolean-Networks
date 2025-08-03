@@ -1,6 +1,6 @@
-# Boolean Network GUI Tool
+# Reasoning about Monotonic Regulation Conditions for Boolean Gene Regulatory Networks: An Algorithmic Approach
 
-This tool is a python solver that uses nuXmv in order to solve boolean networks and experiments on them.
+This Python tool utilizes nuXmv in order to solve Boolean networks under constraints.
 
 ## Requirements
 
@@ -71,6 +71,7 @@ experiment {
 
 ## 5. End Marker
 `end` marks the end.
+
 
 
 
