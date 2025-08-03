@@ -1,0 +1,118 @@
+MODULE main
+VAR
+    A0 : boolean;
+    choice_A0 :{0, 1, 2, 3, 4, 5, 6, 7, 8};
+    B0 : boolean;
+    choice_B0 :{0, 1, 2, 3, 4, 5, 6, 7, 8};
+    C0 : boolean;
+    choice_C0 :{1, 3, 5};
+    S10 : boolean;
+    choice_S10 :{0};
+    S20 : boolean;
+    choice_S20 :{0};
+    time0: 0..18;
+    A1 : boolean;
+    choice_A1 :{0, 1, 2, 3, 4, 5, 6, 7, 8};
+    B1 : boolean;
+    choice_B1 :{0, 1, 2, 3, 4, 5, 6, 7, 8};
+    C1 : boolean;
+    choice_C1 :{1, 3, 5};
+    S11 : boolean;
+    choice_S11 :{0};
+    S21 : boolean;
+    choice_S21 :{0};
+    time1: 0..30;
+
+INIT
+    (A0 = TRUE)&(B0 = TRUE)&(C0 = TRUE)&(S10 = FALSE)&(S20 = TRUE)&(time0 = 0)&(A1 = FALSE)&(B1 = TRUE)&(C1 = TRUE)&(S11 = TRUE)&(S21 = TRUE)&(time1 = 0);
+DEFINE
+    Experiment0 :=(A0 = FALSE)&(B0 = TRUE)&(C0 = TRUE)&(S10 = FALSE)&(S20 = TRUE);
+    Experiment1 :=(A1 = TRUE)&(B1 = TRUE)&(C1 = TRUE)&(S11 = TRUE)&(S21 = TRUE);
+
+ASSIGN
+    next(time0) := (time0 < 18 ? time0+1 : time0);
+    next(choice_A0) := choice_A0;
+    next(A0) := case
+           choice_A0 = 0 : (time0 < 18 ? ((S10 & B0)&(TRUE)):A0);
+           choice_A0 = 1 : (time0 < 18 ? ((!(!S10 & !B0))&(TRUE)):A0);
+           choice_A0 = 2 : (time0 < 18 ? ((S10 & B0)&(!(FALSE))):A0);
+           choice_A0 = 3 : (time0 < 18 ? (((!(!S10 & !B0))&(TRUE))|((S10 & B0)&(!(FALSE)))):A0);
+           choice_A0 = 4 : (time0 < 18 ? ((S10 & B0)):A0);
+           choice_A0 = 5 : (time0 < 18 ? ((S10 & B0)|((TRUE)&(!(!S10 & !B0)))):A0);
+           choice_A0 = 6 : (time0 < 18 ? ((!(!S10 & !B0))&(!(FALSE))):A0);
+           choice_A0 = 7 : (time0 < 18 ? (((!(!S10 & !B0))&(!(FALSE)))|(S10 & B0)):A0);
+           choice_A0 = 8 : (time0 < 18 ? (!(!S10 & !B0)):A0);
+           TRUE: A0;
+    esac;
+    next(choice_B0) := choice_B0;
+    next(B0) := case
+           choice_B0 = 0 : (time0 < 18 ? ((S20 & A0)&(TRUE)):B0);
+           choice_B0 = 1 : (time0 < 18 ? ((!(!S20 & !A0))&(TRUE)):B0);
+           choice_B0 = 2 : (time0 < 18 ? ((S20 & A0)&(!(FALSE))):B0);
+           choice_B0 = 3 : (time0 < 18 ? (((!(!S20 & !A0))&(TRUE))|((S20 & A0)&(!(FALSE)))):B0);
+           choice_B0 = 4 : (time0 < 18 ? ((S20 & A0)):B0);
+           choice_B0 = 5 : (time0 < 18 ? ((S20 & A0)|((TRUE)&(!(!S20 & !A0)))):B0);
+           choice_B0 = 6 : (time0 < 18 ? ((!(!S20 & !A0))&(!(FALSE))):B0);
+           choice_B0 = 7 : (time0 < 18 ? (((!(!S20 & !A0))&(!(FALSE)))|(S20 & A0)):B0);
+           choice_B0 = 8 : (time0 < 18 ? (!(!S20 & !A0)):B0);
+           TRUE: B0;
+    esac;
+    next(choice_C0) := choice_C0;
+    next(C0) := case
+           choice_C0 = 1 : (time0 < 18 ? ((!(!B0 & !A0))&(TRUE)):C0);
+           choice_C0 = 3 : (time0 < 18 ? (((!(!B0 & !A0))&(TRUE))|((B0 & A0)&(!(FALSE)))):C0);
+           choice_C0 = 5 : (time0 < 18 ? ((B0 & A0)|((TRUE)&(!(!B0 & !A0)))):C0);
+           TRUE: C0;
+    esac;
+    next(S10) := case
+           choice_S10 = 0 : (time0 < 18 ? ((S10)&(TRUE)):S10);
+           TRUE: S10;
+    esac;
+    next(S20) := case
+           choice_S20 = 0 : (time0 < 18 ? ((S20)&(TRUE)):S20);
+           TRUE: S20;
+    esac;
+    next(time1) := (time1 < 30 ? time1+1 : time1);
+    next(choice_A1) := choice_A1;
+    next(A1) := case
+           choice_A1 = 0 : (time1 < 30 ? ((S11 & B1)&(TRUE)):A1);
+           choice_A1 = 1 : (time1 < 30 ? ((!(!S11 & !B1))&(TRUE)):A1);
+           choice_A1 = 2 : (time1 < 30 ? ((S11 & B1)&(!(FALSE))):A1);
+           choice_A1 = 3 : (time1 < 30 ? (((!(!S11 & !B1))&(TRUE))|((S11 & B1)&(!(FALSE)))):A1);
+           choice_A1 = 4 : (time1 < 30 ? ((S11 & B1)):A1);
+           choice_A1 = 5 : (time1 < 30 ? ((S11 & B1)|((TRUE)&(!(!S11 & !B1)))):A1);
+           choice_A1 = 6 : (time1 < 30 ? ((!(!S11 & !B1))&(!(FALSE))):A1);
+           choice_A1 = 7 : (time1 < 30 ? (((!(!S11 & !B1))&(!(FALSE)))|(S11 & B1)):A1);
+           choice_A1 = 8 : (time1 < 30 ? (!(!S11 & !B1)):A1);
+           TRUE: A1;
+    esac;
+    next(choice_B1) := choice_B1;
+    next(B1) := case
+           choice_B1 = 0 : (time1 < 30 ? ((S21 & A1)&(TRUE)):B1);
+           choice_B1 = 1 : (time1 < 30 ? ((!(!S21 & !A1))&(TRUE)):B1);
+           choice_B1 = 2 : (time1 < 30 ? ((S21 & A1)&(!(FALSE))):B1);
+           choice_B1 = 3 : (time1 < 30 ? (((!(!S21 & !A1))&(TRUE))|((S21 & A1)&(!(FALSE)))):B1);
+           choice_B1 = 4 : (time1 < 30 ? ((S21 & A1)):B1);
+           choice_B1 = 5 : (time1 < 30 ? ((S21 & A1)|((TRUE)&(!(!S21 & !A1)))):B1);
+           choice_B1 = 6 : (time1 < 30 ? ((!(!S21 & !A1))&(!(FALSE))):B1);
+           choice_B1 = 7 : (time1 < 30 ? (((!(!S21 & !A1))&(!(FALSE)))|(S21 & A1)):B1);
+           choice_B1 = 8 : (time1 < 30 ? (!(!S21 & !A1)):B1);
+           TRUE: B1;
+    esac;
+    next(choice_C1) := choice_C1;
+    next(C1) := case
+           choice_C1 = 1 : (time1 < 30 ? ((!(!B1 & !A1))&(TRUE)):C1);
+           choice_C1 = 3 : (time1 < 30 ? (((!(!B1 & !A1))&(TRUE))|((B1 & A1)&(!(FALSE)))):C1);
+           choice_C1 = 5 : (time1 < 30 ? ((B1 & A1)|((TRUE)&(!(!B1 & !A1)))):C1);
+           TRUE: C1;
+    esac;
+    next(S11) := case
+           choice_S11 = 0 : (time1 < 30 ? ((S11)&(TRUE)):S11);
+           TRUE: S11;
+    esac;
+    next(S21) := case
+           choice_S21 = 0 : (time1 < 30 ? ((S21)&(TRUE)):S21);
+           TRUE: S21;
+    esac;
+CTLSPEC !EF (Experiment0 & time0 <= 18)
+CTLSPEC !EF (Experiment1 & time1 <= 30)
