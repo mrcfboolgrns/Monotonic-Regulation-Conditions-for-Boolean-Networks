@@ -4,6 +4,7 @@ networkx
 numpy
 pandas
 pillow
+re
 argparse
-tkinter
+itertools
 z3

@@ -1,4 +1,5 @@
 import os
+import argparse
 import tkinter as tk
 from tkinter import filedialog
 from PIL import Image, ImageTk
@@ -6,7 +7,11 @@ from PIL import Image, ImageTk
 from GUI import BoolNetworkGUI
 from GUI.gui_comps import *
 
+import CMDLine.cmd_comps as cmd_comps
+
 import sys
+
+import config
 
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "--show-matrix":
@@ -117,5 +122,28 @@ def main():
 
     root.mainloop()
 
+def cmd_main(args):
+    model = os.path.join('Networks', args.model)
+    max_solutions = args.solutions
+    mode = args.mode
+    config.use_simulator = args.simulator
+
+    cmd_comps.start_simulation(model, mode, max_solutions)
+
+
+def parse_args():
+    p = argparse.ArgumentParser()
+    p.add_argument('-m', '--model', required=False, type=str, help='Boolean Model filename to analyze from Networks directory.')
+    p.add_argument('-d', '--mode', required=False, type=str, default="expanded_huristic", help='Mode of operation. Default "expanded_huristic".')
+    p.add_argument('-s', '--solutions', required=False, type=int, default=50, help='Maximum number of solutions to find. Default 50.')
+    p.add_argument('-sim', '--simulator', required=False, type=bool, default=False, help='Use Simulator or User Input, True for Simulator, False for User Input. Default False.')
+    return p.parse_args()
+
 if __name__ == "__main__":
-    main()
+    # main()
+    opts = parse_args()
+
+    if opts.model is None:
+        main()
+    else:
+        cmd_main(args=opts)

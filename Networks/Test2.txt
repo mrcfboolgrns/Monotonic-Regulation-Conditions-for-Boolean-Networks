@@ -1,0 +1,33 @@
+component{
+    A 0
+    B 0
+    C 0
+    D 0
+    E 0
+    X 0
+    Y 0
+}
+
+interaction{
+    A B positive weak False
+    C B positive strong False
+    D B positive strong False
+    B C positive weak False
+    C D positive weak False
+    D E positive weak False
+    E X positive weak False
+    X Y positive weak False
+}
+
+condition{
+    A=1 and B=0 and C=0 and D=0 and E=0 and X=0 and Y=0 expression1
+    A=1 and B=1 and C=1 and D=1 and E=1 and X=1 and Y=1 expression2
+    A=1 and B=0 and C=0 and D=0 and E=0 and X=0 and Y=0 expression3
+    A=1 and B=1 and C=1 and D=1 and E=1 and X=1 and Y=1 expression4
+}
+
+experiment{
+    0 expression1 10 expression2
+}
+
+end

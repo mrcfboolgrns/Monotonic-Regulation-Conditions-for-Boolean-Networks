@@ -1,9 +1,17 @@
 import pandas as pd
 import numpy as np
 import itertools
-
+import sys
+from pathlib import Path
 
 import queue
+
+parent_dir = Path(__file__).resolve().parent.parent
+sys.path.append(str(parent_dir))
+import config
+
+import Simulator.simulator as simulator
+
 
 def generate_perms(mat, blank:list):
     matlist = []
@@ -78,7 +86,37 @@ def run_matrix(n,m,act,rep):
     flag = False
     while i<n and j<m:
         print(matrix)
-        out=(input(f"Run Experiment for (i,j)={act[i],rep[j]}: "))
+        out = None
+        '''MAKE EDITS HERE FOR RUNNING IN SIMULATOR'''
+        def simulator_translation(act,rep,i,j):
+            sim_dict = dict.fromkeys(["WA", "SA", "WI", "SI"], None)
+
+            for part in act[i].split('&'):
+                part = part.strip()
+                split_part = part.split('#')
+                if 'weak' in part:
+                    sim_dict['WA'] = split_part[0]
+                elif 'strong' in part:
+                    sim_dict['SA'] = split_part[0]
+                    
+
+            for part in rep[j].split('&'):
+                part = part.strip()
+                split_part = part.split('#')          
+                if 'weak' in part:
+                    sim_dict['WI'] = split_part[0]
+                elif 'strong' in part:
+                    sim_dict['SI'] = split_part[0]
+
+            return sim_dict
+        
+        if config.use_simulator:
+            print(f"Running Simulation of Experiment for (i,j)={act[i],rep[j]}")
+            sim_dict = simulator_translation(act,rep,i,j)
+            # out = simulator.sim(sim_dict, target component)
+        else:
+            out=(input(f"Run Experiment for (i,j)={act[i],rep[j]}: "))
+
         if out=='1':
             flag = False
             for k1 in range(i,n):
@@ -202,12 +240,18 @@ def startmatrix(arrn, arrm):
     ind_list = []
 
     if len(arrn) > 1:
-        user_input = input("the activator groups are " + str(arrn) + " Enter your preferred order, separated by commas: ")
-        priority = user_input.split(',')
+        if config.use_simulator:
+            priority = ['weak', 'strong']
+        else:
+            user_input = input("the activator groups are " + str(arrn) + " Enter your preferred order, separated by commas: ")
+            priority = user_input.split(',')
         arrn = sorted(arrn, key=lambda x: priority.index(x) if x in priority else len(priority))
     if len(arrm) > 1:
-        user_input = input("the repressor groups are " + str(arrm) + " Enter your preferred order, separated by commas: ")
-        priority = user_input.split(',')
+        if config.use_simulator:
+            priority = ['weak', 'strong']
+        else:
+            user_input = input("the repressor groups are " + str(arrm) + " Enter your preferred order, separated by commas: ")
+            priority = user_input.split(',')
         arrm = sorted(arrm, key=lambda x: priority.index(x) if x in priority else len(priority))
 
 
