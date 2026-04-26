@@ -1,0 +1,9 @@
+fonttools
+matplotlib
+networkx
+numpy
+pandas
+pillow
+argparse
+tkinter
+z3
