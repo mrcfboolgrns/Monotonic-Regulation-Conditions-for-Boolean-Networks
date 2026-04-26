@@ -1,0 +1,39 @@
+component{
+    a 0-17
+    b 0-17
+    c 0-17
+    d 0-17
+}
+
+interaction{
+    a a positive weak False
+    a d positive weak False
+    b d positive weak True
+    c d positive strong True
+    c c positive weak False
+    b b positive weak False
+}
+
+condition{
+    a=1 and b=0 and c=0 and d=0 condition1
+    a=0 and b=0 and c=1 and d=0 condition2
+    a=0 and b=0 and c=1 and d=1 condition3
+    a=1 and b=1 and c=0 and d=0 condition4
+    a=1 and b=1 and c=0 and d=1 condition5
+}
+
+experiment{
+    0 condition1 18 condition1
+    0 condition2 18 condition3
+    0 condition4 18 condition5
+}
+
+end
+
+
+    d = c | (a & b)
+    n strong &
+//(a and b) or (c and d) or e ,e strong, a,f false, c,f false,
+1 1 0 0 0 ->1
+1 0 1 0 0 ->0
+0 0 0 0 1 ->1

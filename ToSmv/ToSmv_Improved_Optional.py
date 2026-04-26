@@ -550,7 +550,7 @@ class ToSmv_Improved_Optional(ToSmv_Improved):
             return output
 
         # Path to nuXmv
-        smv_path = open("Path/nuxmv_path.txt")
+        smv_path = open("nuxmv_path.txt")
         nuxmv_executable = smv_path.readline().strip()
 
         # Ensure valid path to input .smv file

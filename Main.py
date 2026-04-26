@@ -83,7 +83,7 @@ def main():
         try:
             net = BoolNetwork()
             parse_network(file, net)
-            preview_path = os.path.join(previews_dir, f"preview_{file.split("/")[-1]}.png")
+            preview_path = os.path.join(previews_dir, f"preview_{file.split(os.path.sep)[-1]}.png")
             if not render_network_preview(net, preview_path, file):
                 continue
 

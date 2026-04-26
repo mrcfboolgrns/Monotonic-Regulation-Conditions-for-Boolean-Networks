@@ -15,7 +15,7 @@ from ToSmv.ToSmv_Expanded_Huristic import ToSmv_Expanded_Huristic
 from ToSmv.ToSmv_Improved_Optional import ToSmv_Improved_Optional
 from ToSmv.ToSmv_Improved import ToSmv_Improved
 
-CONFIG_FILE = "Path/nuxmv_path.txt"
+CONFIG_FILE = "nuxmv_path.txt"
 
 def save_nuxmv_path(path):
     with open(CONFIG_FILE, "w") as f:

@@ -1,0 +1,51 @@
+component{
+    A 0-17
+    B 0-17
+    C 0-17
+    D 0-17
+    E 0-17
+    F 0
+    res 0
+}
+
+interaction{
+    A A positive weak1 False
+    B B positive weak1 False
+    C C positive weak1 False
+    D D positive weak1 False
+    E E positive weak1 False
+    F F positive weak1 False
+
+    A res positive weak1 True
+    C res positive weak1 True
+    D res positive weak2 True
+    B res positive weak1 True
+    E res positive weak2 True
+    F res positive strong True
+}
+res = a|b|c & d|e & f
+
+condition{
+    A=0 and B=0 and C=1 and D=1 and E=0 and F=1 and res=0 expression3
+    A=0 and B=0 and C=1 and D=1 and E=0 and F=1 and res=1 expression4
+
+    A=1 and B=1 and C=0 and D=1 and E=0 and F=1 and res=0 expression3
+    A=1 and B=1 and C=0 and D=1 and E=0 and F=1 and res=1 expression4
+
+    A=1 and B=1 and C=0 and D=1 and E=0 and F=1 and res=0 expression3
+    A=1 and B=1 and C=0 and D=1 and E=0 and F=1 and res=1 expression4
+
+    A=0 and B=0 and C=1 and D=1 and E=1 and F=1 and res=0 expression5
+    A=0 and B=0 and C=1 and D=1 and E=1 and F=1 and res=1 expression6
+
+    A=1 and B=0 and C=0 and D=0 and E=1 and F=1 and res=0 expression7
+    A=1 and B=0 and C=0 and D=0 and E=1 and F=1 and res=1 expression8
+}
+
+experiment{
+    0 expression3 10 expression4
+    0 expression5 10 expression6
+    0 expression7 10 expression8
+}
+
+end
