@@ -42,7 +42,7 @@ class Node: #used to identify the connections and their effect (positive/negativ
             else:
                 arrm |= {i[1]}
         print(f"Examining node {self.name}:")
-        self.regIndices = startmatrix(arrn, arrm)
+        self.regIndices = startmatrix(arrn, arrm, self.name)
         if self.regIndices == []:
             print(f"Node {self.name} has no regulators.")
 

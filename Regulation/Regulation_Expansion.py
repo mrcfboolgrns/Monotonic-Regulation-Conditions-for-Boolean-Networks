@@ -75,7 +75,7 @@ def create(n,m):
 
 
 
-def run_matrix(n,m,act,rep):
+def run_matrix(n=2,m=2,act=None,rep=None,target_component=None, formula=None, variables=None):
     matrix = create(n,m)
     n,m = matrix.shape
     i=j=0
@@ -88,36 +88,14 @@ def run_matrix(n,m,act,rep):
         print(matrix)
         out = None
         '''MAKE EDITS HERE FOR RUNNING IN SIMULATOR'''
-        def simulator_translation(act,rep,i,j):
-            sim_dict = dict.fromkeys(["WA", "SA", "WI", "SI"], None)
-
-            for part in act[i].split('&'):
-                part = part.strip()
-                split_part = part.split('#')
-                if 'weak' in part:
-                    sim_dict['WA'] = split_part[0]
-                elif 'strong' in part:
-                    sim_dict['SA'] = split_part[0]
-                    
-
-            for part in rep[j].split('&'):
-                part = part.strip()
-                split_part = part.split('#')          
-                if 'weak' in part:
-                    sim_dict['WI'] = split_part[0]
-                elif 'strong' in part:
-                    sim_dict['SI'] = split_part[0]
-
-            return sim_dict
-        
         if config.use_simulator:
-            print(f"Running Simulation of Experiment for (i,j)={act[i],rep[j]}")
-            sim_dict = simulator_translation(act,rep,i,j)
-            # out = simulator.sim(sim_dict, target component)
+            print(f"Running Simulation of Experiment for Target={target_component} and (i,j)=[{i}, {j}]")
+            out = simulator.sim(i, j, target_component, formula, variables)
+            print(f"Result of Simulation: {out}")
         else:
-            out=(input(f"Run Experiment for (i,j)={act[i],rep[j]}: "))
+            out=(input(f"Run Experiment for Target={target_component} and (i,j)={act[i],rep[j]}: "))
 
-        if out=='1':
+        if out==True:
             flag = False
             for k1 in range(i,n):
                 for k2 in range(j+1):
@@ -128,7 +106,7 @@ def run_matrix(n,m,act,rep):
                         pass
                     matrix.at[k1,k2]=1
             j+=1
-        elif out=='0':
+        elif out==False:
             if flag and len(last)==2:
                 i,j = last[0]+1,last[1]
                 last = ()
@@ -234,34 +212,34 @@ def helper(n,flag,arr):
 
 
 
-def startmatrix(arrn, arrm):
-    arrn = list(arrn)
-    arrm = list(arrm)
+def startmatrix(arrn, arrm, target_component=None, formula=None, variables=None):
+    mat, blank = None, None
     ind_list = []
-
-    if len(arrn) > 1:
-        if config.use_simulator:
-            priority = ['weak', 'strong']
-        else:
+    if not config.use_simulator:
+        arrn = list(arrn)
+        arrm = list(arrm)
+        if len(arrn) > 1:
             user_input = input("the activator groups are " + str(arrn) + " Enter your preferred order, separated by commas: ")
             priority = user_input.split(',')
-        arrn = sorted(arrn, key=lambda x: priority.index(x) if x in priority else len(priority))
-    if len(arrm) > 1:
-        if config.use_simulator:
-            priority = ['weak', 'strong']
-        else:
+            arrn = sorted(arrn, key=lambda x: priority.index(x) if x in priority else len(priority))
+        if len(arrm) > 1:
             user_input = input("the repressor groups are " + str(arrm) + " Enter your preferred order, separated by commas: ")
             priority = user_input.split(',')
-        arrm = sorted(arrm, key=lambda x: priority.index(x) if x in priority else len(priority))
+            arrm = sorted(arrm, key=lambda x: priority.index(x) if x in priority else len(priority))
 
 
-    if len(arrn) == 0 and len(arrm) == 0:
-        return []
+        if len(arrn) == 0 and len(arrm) == 0:
+            return []
 
-    n, m = len(arrn), len(arrm)
-    act = helper(n, 'A', arrn)
-    rep = helper(m, 'R', arrm)
-    mat, blank = run_matrix(n, m, act, rep)
+        n, m = len(arrn), len(arrm)
+        act = helper(n, 'A', arrn)
+        rep = helper(m, 'R', arrm)
+        mat, blank = run_matrix(n, m, act, rep)
+    else:
+        mat, blank = run_matrix(target_component=target_component, formula=formula, variables=variables)
+        act = helper(2, 'A', ['weak', 'strong'])
+        rep = helper(2, 'R', ['weak', 'strong'])
+    
     matlist = generate_perms(mat, blank)
 
     for mat1 in matlist:
