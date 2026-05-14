@@ -133,7 +133,7 @@ def cmd_main(args):
 
 def parse_args():
     p = argparse.ArgumentParser()
-    p.add_argument('-m', '--model', required=False, type=str, help='Boolean Model filename to analyze from Networks directory. bnet file')
+    p.add_argument('-m', '--model', required=False, type=str, help='Boolean Model filename to analyze from "/biodivine-boolean-models/models" directory (bnet file).')
     p.add_argument('-d', '--mode', required=False, type=str, default="expanded_huristic", help='Mode of operation. Default "expanded_huristic".')
     p.add_argument('-s', '--solutions', required=False, type=int, default=50, help='Maximum number of solutions to find. Default 50.')
     p.add_argument('-sim', '--simulator', required=False, type=bool, default=False, help='Use Simulator or User Input, True for Simulator, False for User Input. Default False.')
