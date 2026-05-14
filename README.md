@@ -1,6 +1,6 @@
 # Boolean Network GUI Tool
 
-This tool is a python solver that uses NuXmv in order to solve boolean networks and experiments on them.
+This tool is a python solver that uses nuXmv in order to solve boolean networks and experiments on them.
 
 ## Requirements
 
@@ -13,10 +13,10 @@ numpy
 pandas
 pillow
 
-- `NuXmv` (download separately)
+- `nuXmv` (download separately)
 
 ## Setup
-After downloading NuXmv run ~Main.py and specify the directory of the NuXmv tool. 
+After downloading nuXmv run ~Main.py and specify the directory of the nuXmv tool. 
 
 ## Creating Boolean networks
 ## 1. Component Section
@@ -71,5 +71,6 @@ experiment {
 
 ## 5. End Marker
 `end` marks the end.
+
 
 
