@@ -269,39 +269,39 @@ ASSIGN
     next(d0) := case
            choice_d = 0 : (time0 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)&(TRUE));
+                  TRUE: ((((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0)&(TRUE));
                esac : d0);
            choice_d = 1 : (time0 < 18 ?
                case
-                  TRUE: ((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(TRUE));
+                  TRUE: ((!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0))&(TRUE));
                esac : d0);
            choice_d = 2 : (time0 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)&(!(FALSE)));
+                  TRUE: ((((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0)&(!(FALSE)));
                esac : d0);
            choice_d = 3 : (time0 < 18 ?
                case
-                  TRUE: (((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(TRUE))|((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)&(!(FALSE))));
+                  TRUE: (((!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0))&(TRUE))|((((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0)&(!(FALSE))));
                esac : d0);
            choice_d = 4 : (time0 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+                  TRUE: ((((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0));
                esac : d0);
            choice_d = 5 : (time0 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)|((FALSE)&(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))));
+                  TRUE: ((((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0)|((FALSE)&(!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0))));
                esac : d0);
            choice_d = 6 : (time0 < 18 ?
                case
-                  TRUE: ((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(!(FALSE)));
+                  TRUE: ((!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0))&(!(FALSE)));
                esac : d0);
            choice_d = 7 : (time0 < 18 ?
                case
-                  TRUE: (((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(!(FALSE)))|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+                  TRUE: (((!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0))&(!(FALSE)))|(((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0));
                esac : d0);
            choice_d = 8 : (time0 < 18 ?
                case
-                  TRUE: (!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0));
+                  TRUE: (!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0));
                esac : d0);
            choice_d = 9 : (time0 < 18 ?
                case
@@ -309,11 +309,11 @@ ASSIGN
                esac : d0);
            choice_d = 10 : (time0 < 18 ?
                case
-                  TRUE: ((FALSE)|((!(TRUE))&(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)));
+                  TRUE: ((FALSE)|((!(TRUE))&(((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0)));
                esac : d0);
            choice_d = 11 : (time0 < 18 ?
                case
-                  TRUE: ((FALSE)|((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(!(TRUE))));
+                  TRUE: ((FALSE)|((!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0))&(!(TRUE))));
                esac : d0);
            choice_d = 12 : (time0 < 18 ?
                case
@@ -321,23 +321,23 @@ ASSIGN
                esac : d0);
            choice_d = 13 : (time0 < 18 ?
                case
-                  TRUE: ((FALSE)|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+                  TRUE: ((FALSE)|(((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0));
                esac : d0);
            choice_d = 14 : (time0 < 18 ?
                case
-                  TRUE: (((FALSE)|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0))|((!((FALSE))&(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0)))));
+                  TRUE: (((FALSE)|(((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0))|((!((FALSE))&(!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0)))));
                esac : d0);
            choice_d = 15 : (time0 < 18 ?
                case
-                  TRUE: ((!(FALSE))|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+                  TRUE: ((!(FALSE))|(((edge_c_d_positive) ? c0 : TRUE) & ((edge_b_d_positive) ? b0 : TRUE) & a0));
                esac : d0);
            choice_d = 16 : (time0 < 18 ?
                case
-                  TRUE: ((TRUE)|(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0)));
+                  TRUE: ((TRUE)|(!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0)));
                esac : d0);
            choice_d = 17 : (time0 < 18 ?
                case
-                  TRUE: ((!(FALSE))|(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0)));
+                  TRUE: ((!(FALSE))|(!(((edge_c_d_positive) ? !c0: TRUE) & ((edge_b_d_positive) ? !b0: TRUE) & !a0)));
                esac : d0);
                TRUE: d0;
            esac;
@@ -570,39 +570,39 @@ ASSIGN
     next(d1) := case
            choice_d = 0 : (time1 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)&(TRUE));
+                  TRUE: ((((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1)&(TRUE));
                esac : d1);
            choice_d = 1 : (time1 < 18 ?
                case
-                  TRUE: ((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(TRUE));
+                  TRUE: ((!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1))&(TRUE));
                esac : d1);
            choice_d = 2 : (time1 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)&(!(FALSE)));
+                  TRUE: ((((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1)&(!(FALSE)));
                esac : d1);
            choice_d = 3 : (time1 < 18 ?
                case
-                  TRUE: (((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(TRUE))|((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)&(!(FALSE))));
+                  TRUE: (((!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1))&(TRUE))|((((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1)&(!(FALSE))));
                esac : d1);
            choice_d = 4 : (time1 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+                  TRUE: ((((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1));
                esac : d1);
            choice_d = 5 : (time1 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)|((FALSE)&(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))));
+                  TRUE: ((((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1)|((FALSE)&(!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1))));
                esac : d1);
            choice_d = 6 : (time1 < 18 ?
                case
-                  TRUE: ((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(!(FALSE)));
+                  TRUE: ((!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1))&(!(FALSE)));
                esac : d1);
            choice_d = 7 : (time1 < 18 ?
                case
-                  TRUE: (((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(!(FALSE)))|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+                  TRUE: (((!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1))&(!(FALSE)))|(((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1));
                esac : d1);
            choice_d = 8 : (time1 < 18 ?
                case
-                  TRUE: (!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1));
+                  TRUE: (!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1));
                esac : d1);
            choice_d = 9 : (time1 < 18 ?
                case
@@ -610,11 +610,11 @@ ASSIGN
                esac : d1);
            choice_d = 10 : (time1 < 18 ?
                case
-                  TRUE: ((FALSE)|((!(TRUE))&(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)));
+                  TRUE: ((FALSE)|((!(TRUE))&(((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1)));
                esac : d1);
            choice_d = 11 : (time1 < 18 ?
                case
-                  TRUE: ((FALSE)|((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(!(TRUE))));
+                  TRUE: ((FALSE)|((!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1))&(!(TRUE))));
                esac : d1);
            choice_d = 12 : (time1 < 18 ?
                case
@@ -622,23 +622,23 @@ ASSIGN
                esac : d1);
            choice_d = 13 : (time1 < 18 ?
                case
-                  TRUE: ((FALSE)|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+                  TRUE: ((FALSE)|(((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1));
                esac : d1);
            choice_d = 14 : (time1 < 18 ?
                case
-                  TRUE: (((FALSE)|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1))|((!((FALSE))&(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1)))));
+                  TRUE: (((FALSE)|(((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1))|((!((FALSE))&(!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1)))));
                esac : d1);
            choice_d = 15 : (time1 < 18 ?
                case
-                  TRUE: ((!(FALSE))|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+                  TRUE: ((!(FALSE))|(((edge_c_d_positive) ? c1 : TRUE) & ((edge_b_d_positive) ? b1 : TRUE) & a1));
                esac : d1);
            choice_d = 16 : (time1 < 18 ?
                case
-                  TRUE: ((TRUE)|(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1)));
+                  TRUE: ((TRUE)|(!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1)));
                esac : d1);
            choice_d = 17 : (time1 < 18 ?
                case
-                  TRUE: ((!(FALSE))|(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1)));
+                  TRUE: ((!(FALSE))|(!(((edge_c_d_positive) ? !c1: TRUE) & ((edge_b_d_positive) ? !b1: TRUE) & !a1)));
                esac : d1);
                TRUE: d1;
            esac;
@@ -871,39 +871,39 @@ ASSIGN
     next(d2) := case
            choice_d = 0 : (time2 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)&(TRUE));
+                  TRUE: ((((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2)&(TRUE));
                esac : d2);
            choice_d = 1 : (time2 < 18 ?
                case
-                  TRUE: ((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(TRUE));
+                  TRUE: ((!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2))&(TRUE));
                esac : d2);
            choice_d = 2 : (time2 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)&(!(FALSE)));
+                  TRUE: ((((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2)&(!(FALSE)));
                esac : d2);
            choice_d = 3 : (time2 < 18 ?
                case
-                  TRUE: (((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(TRUE))|((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)&(!(FALSE))));
+                  TRUE: (((!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2))&(TRUE))|((((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2)&(!(FALSE))));
                esac : d2);
            choice_d = 4 : (time2 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+                  TRUE: ((((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2));
                esac : d2);
            choice_d = 5 : (time2 < 18 ?
                case
-                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)|((FALSE)&(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))));
+                  TRUE: ((((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2)|((FALSE)&(!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2))));
                esac : d2);
            choice_d = 6 : (time2 < 18 ?
                case
-                  TRUE: ((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(!(FALSE)));
+                  TRUE: ((!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2))&(!(FALSE)));
                esac : d2);
            choice_d = 7 : (time2 < 18 ?
                case
-                  TRUE: (((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(!(FALSE)))|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+                  TRUE: (((!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2))&(!(FALSE)))|(((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2));
                esac : d2);
            choice_d = 8 : (time2 < 18 ?
                case
-                  TRUE: (!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2));
+                  TRUE: (!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2));
                esac : d2);
            choice_d = 9 : (time2 < 18 ?
                case
@@ -911,11 +911,11 @@ ASSIGN
                esac : d2);
            choice_d = 10 : (time2 < 18 ?
                case
-                  TRUE: ((FALSE)|((!(TRUE))&(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)));
+                  TRUE: ((FALSE)|((!(TRUE))&(((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2)));
                esac : d2);
            choice_d = 11 : (time2 < 18 ?
                case
-                  TRUE: ((FALSE)|((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(!(TRUE))));
+                  TRUE: ((FALSE)|((!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2))&(!(TRUE))));
                esac : d2);
            choice_d = 12 : (time2 < 18 ?
                case
@@ -923,23 +923,23 @@ ASSIGN
                esac : d2);
            choice_d = 13 : (time2 < 18 ?
                case
-                  TRUE: ((FALSE)|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+                  TRUE: ((FALSE)|(((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2));
                esac : d2);
            choice_d = 14 : (time2 < 18 ?
                case
-                  TRUE: (((FALSE)|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2))|((!((FALSE))&(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2)))));
+                  TRUE: (((FALSE)|(((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2))|((!((FALSE))&(!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2)))));
                esac : d2);
            choice_d = 15 : (time2 < 18 ?
                case
-                  TRUE: ((!(FALSE))|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+                  TRUE: ((!(FALSE))|(((edge_c_d_positive) ? c2 : TRUE) & ((edge_b_d_positive) ? b2 : TRUE) & a2));
                esac : d2);
            choice_d = 16 : (time2 < 18 ?
                case
-                  TRUE: ((TRUE)|(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2)));
+                  TRUE: ((TRUE)|(!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2)));
                esac : d2);
            choice_d = 17 : (time2 < 18 ?
                case
-                  TRUE: ((!(FALSE))|(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2)));
+                  TRUE: ((!(FALSE))|(!(((edge_c_d_positive) ? !c2: TRUE) & ((edge_b_d_positive) ? !b2: TRUE) & !a2)));
                esac : d2);
                TRUE: d2;
            esac;
