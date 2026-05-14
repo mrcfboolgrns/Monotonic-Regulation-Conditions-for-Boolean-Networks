@@ -126,8 +126,10 @@ class BoolNetwork:
 
 
     def print_interactions(self):
-        print(f"{self.possible_interactions} possible interactions")
-        print(f"{self.definite_interactions} definite interactions")
+        print("Possible interactions:")
+        print(f"{self.possible_interactions}")
+        print("Definite interactions:")
+        print(f"{self.definite_interactions}")
 
 
     def generate_permutations(self): #generate all possible permutations of optional connections

@@ -41,7 +41,10 @@ class Node: #used to identify the connections and their effect (positive/negativ
                 arrn |= {i[1]}
             else:
                 arrm |= {i[1]}
+        print(f"Examining node {self.name}:")
         self.regIndices = startmatrix(arrn, arrm)
+        if self.regIndices == []:
+            print(f"Node {self.name} has no regulators.")
 
         # if effect=="positive" and optional=='True':
         #     self.optional_activators.append(source)
@@ -58,5 +61,6 @@ class Node: #used to identify the connections and their effect (positive/negativ
 
 
     def printall(self):
-        print(f"{self.name}'s sources are {self.sources}, and the regulations are {self.regulation}")
+        print(f"{self.name}'s sources:\t {self.sources}")
+        print(f"{self.name}'s regulations: {self.regulation}")
         # print(f"definite activators: {self.definite_activators}, optional activators: {self.optional_activators}, definite repressors: {self.definite_repressors}, optional repressors: {self.optional_repressors}")
