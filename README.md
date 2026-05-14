@@ -23,7 +23,7 @@ tkinter
 After downloading nuXmv run ~Main.py and specify the directory of the nuXmv tool. 
 
 ## Creating Boolean networks
-## 1. Component Section
+### 1. Component Section
 Defines network nodes and their values.
 - **Syntax**: `<name> <range>` (`A 0-17`, `B 1,3,5`)
 
@@ -37,7 +37,7 @@ component {
 }
 ```
 
-## 2. Interaction Section
+### 2. Interaction Section
 Defines how components influence each other.
 - **Syntax**: `<source> <target> <type> <strength> <optional>`
 - **Fields**:
@@ -53,7 +53,7 @@ interaction {
 }
 ```
 
-## 3. Condition Section
+### 3. Condition Section
 - **Syntax**: `<component_states> <expression_label>`
 
 **Example**:
@@ -63,7 +63,7 @@ condition {
 }
 ```
 
-## 4. Experiment Section
+### 4. Experiment Section
 - **Syntax**: `<start_time> <expression_label> <end_time> <expression_label>`
 
 **Example**:
@@ -73,9 +73,20 @@ experiment {
 }
 ```
 
-## 5. End Marker
+### 5. End Marker
 `end` marks the end.
 
+## Reproduction of Results
+### Implementation
+In order to reproduct the results using the wet-lab simulator, use the following commands:
+```
+python3 Main.py -m {i}-model.bnet -d expanded_huristic -s 50 -sim True
+```
+Where i represents a specific bnet model in the ```/biodivine-boolean-models/models``` directory.
 
-
+### BBM Analysis
+Download the full Biodivine-Boolean Models (BBM) dataset into the ```/biodivine-boolean-models/models``` directory, and run:
+```
+python3 readModels.py
+```
 
