@@ -12,6 +12,10 @@ networkx
 numpy
 pandas
 pillow
+argparse
+
+#### Separate Install
+tkinter
 
 - `nuXmv` (download separately)
 
