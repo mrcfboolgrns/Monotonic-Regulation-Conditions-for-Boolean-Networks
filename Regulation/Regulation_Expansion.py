@@ -82,6 +82,7 @@ def run_matrix(n=2,m=2,act=None,rep=None,target_component=None, formula=None, va
     blank = []
     blank_mat=[[] for i in range(n)]
     last=()
+    experiment_counter = 0
 
     flag = False
     while i<n and j<m:
@@ -92,6 +93,7 @@ def run_matrix(n=2,m=2,act=None,rep=None,target_component=None, formula=None, va
             print(f"Running Simulation of Experiment for Target={target_component} and (i,j)=[{i}, {j}]")
             out = simulator.sim(i, j, target_component, formula, variables)
             print(f"Result of Simulation: {out}")
+            experiment_counter += 1
         else:
             out=(input(f"Run Experiment for Target={target_component} and (i,j)={act[i],rep[j]}: "))
 
@@ -126,6 +128,13 @@ def run_matrix(n=2,m=2,act=None,rep=None,target_component=None, formula=None, va
                 j = blank_mat[i][0]
                 i+=1
 
+    file_path = Path('num_experiments.csv')
+    was_created = not file_path.exists()
+    with open(file_path, 'a') as f:
+        if was_created:
+            f.write("Target, Variable Count, Number Experiments\n")
+        f.write(f"{target_component}, {len(variables)}, {experiment_counter}\n")
+    
     return clear_blank(matrix,blank)
 
 
