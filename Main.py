@@ -123,7 +123,7 @@ def main():
     root.mainloop()
 
 def cmd_main(args):
-    model = os.path.join('Networks', args.model)
+    model = os.path.join('biodivine-boolean-models/models', args.model)
     max_solutions = args.solutions
     mode = args.mode
     config.use_simulator = args.simulator
@@ -133,7 +133,7 @@ def cmd_main(args):
 
 def parse_args():
     p = argparse.ArgumentParser()
-    p.add_argument('-m', '--model', required=False, type=str, help='Boolean Model filename to analyze from Networks directory.')
+    p.add_argument('-m', '--model', required=False, type=str, help='Boolean Model filename to analyze from Networks directory. bnet file')
     p.add_argument('-d', '--mode', required=False, type=str, default="expanded_huristic", help='Mode of operation. Default "expanded_huristic".')
     p.add_argument('-s', '--solutions', required=False, type=int, default=50, help='Maximum number of solutions to find. Default 50.')
     p.add_argument('-sim', '--simulator', required=False, type=bool, default=False, help='Use Simulator or User Input, True for Simulator, False for User Input. Default False.')
