@@ -1,0 +1,946 @@
+MODULE main
+VAR
+    a0 : boolean;
+    b0 : boolean;
+    c0 : boolean;
+    d0 : boolean;
+    time0: 0..18;
+    a1 : boolean;
+    b1 : boolean;
+    c1 : boolean;
+    d1 : boolean;
+    time1: 0..18;
+    a2 : boolean;
+    b2 : boolean;
+    c2 : boolean;
+    d2 : boolean;
+    time2: 0..18;
+    choice_a :{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+    choice_b :{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+    choice_c :{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+    choice_d :{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+    edge_b_d_positive : boolean;
+    choice_edge_b_d_positive : {0,1};
+    edge_c_d_positive : boolean;
+    choice_edge_c_d_positive : {0,1};
+
+INIT
+    (a0 = TRUE)&(b0 = FALSE)&(c0 = FALSE)&(d0 = FALSE)&(time0 = 0) & (a1 = FALSE)&(b1 = FALSE)&(c1 = TRUE)&(d1 = FALSE)&(time1 = 0) & (a2 = TRUE)&(b2 = TRUE)&(c2 = FALSE)&(d2 = FALSE)&(time2 = 0) & (edge_b_d_positive = (choice_edge_b_d_positive = 0 ? TRUE : FALSE)) & (edge_c_d_positive = (choice_edge_c_d_positive = 0 ? TRUE : FALSE));
+DEFINE
+    Experiment0 :=(a0 = TRUE)&(b0 = FALSE)&(c0 = FALSE)&(d0 = FALSE);
+    Experiment1 :=(a1 = FALSE)&(b1 = FALSE)&(c1 = TRUE)&(d1 = TRUE);
+    Experiment2 :=(a2 = TRUE)&(b2 = TRUE)&(c2 = FALSE)&(d2 = TRUE);
+
+ASSIGN
+    next(choice_edge_b_d_positive) := choice_edge_b_d_positive;
+    next(edge_b_d_positive) := edge_b_d_positive;
+    next(choice_edge_c_d_positive) := choice_edge_c_d_positive;
+    next(edge_c_d_positive) := edge_c_d_positive;
+    next(choice_a) := choice_a;
+    next(choice_b) := choice_b;
+    next(choice_c) := choice_c;
+    next(choice_d) := choice_d;
+    next(time0) := (time0 < 18 ? time0+1 : time0);
+    next(a0) := case
+           choice_a = 0 : (time0 < 18 ?
+               case
+                  TRUE: ((a0)&(TRUE));
+               esac : a0);
+           choice_a = 1 : (time0 < 18 ?
+               case
+                  TRUE: ((!(!a0))&(TRUE));
+               esac : a0);
+           choice_a = 2 : (time0 < 18 ?
+               case
+                  TRUE: ((a0)&(!(FALSE)));
+               esac : a0);
+           choice_a = 3 : (time0 < 18 ?
+               case
+                  TRUE: (((!(!a0))&(TRUE))|((a0)&(!(FALSE))));
+               esac : a0);
+           choice_a = 4 : (time0 < 18 ?
+               case
+                  TRUE: ((a0));
+               esac : a0);
+           choice_a = 5 : (time0 < 18 ?
+               case
+                  TRUE: ((a0)|((FALSE)&(!(!a0))));
+               esac : a0);
+           choice_a = 6 : (time0 < 18 ?
+               case
+                  TRUE: ((!(!a0))&(!(FALSE)));
+               esac : a0);
+           choice_a = 7 : (time0 < 18 ?
+               case
+                  TRUE: (((!(!a0))&(!(FALSE)))|(a0));
+               esac : a0);
+           choice_a = 8 : (time0 < 18 ?
+               case
+                  TRUE: (!(!a0));
+               esac : a0);
+           choice_a = 9 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : a0);
+           choice_a = 10 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(a0)));
+               esac : a0);
+           choice_a = 11 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!a0))&(!(TRUE))));
+               esac : a0);
+           choice_a = 12 : (time0 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : a0);
+           choice_a = 13 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|(a0));
+               esac : a0);
+           choice_a = 14 : (time0 < 18 ?
+               case
+                  TRUE: (((FALSE)|(a0))|((!((FALSE))&(!(!a0)))));
+               esac : a0);
+           choice_a = 15 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(a0));
+               esac : a0);
+           choice_a = 16 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!a0)));
+               esac : a0);
+           choice_a = 17 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!a0)));
+               esac : a0);
+               TRUE: a0;
+           esac;
+    next(b0) := case
+           choice_b = 0 : (time0 < 18 ?
+               case
+                  TRUE: ((b0)&(TRUE));
+               esac : b0);
+           choice_b = 1 : (time0 < 18 ?
+               case
+                  TRUE: ((!(!b0))&(TRUE));
+               esac : b0);
+           choice_b = 2 : (time0 < 18 ?
+               case
+                  TRUE: ((b0)&(!(FALSE)));
+               esac : b0);
+           choice_b = 3 : (time0 < 18 ?
+               case
+                  TRUE: (((!(!b0))&(TRUE))|((b0)&(!(FALSE))));
+               esac : b0);
+           choice_b = 4 : (time0 < 18 ?
+               case
+                  TRUE: ((b0));
+               esac : b0);
+           choice_b = 5 : (time0 < 18 ?
+               case
+                  TRUE: ((b0)|((FALSE)&(!(!b0))));
+               esac : b0);
+           choice_b = 6 : (time0 < 18 ?
+               case
+                  TRUE: ((!(!b0))&(!(FALSE)));
+               esac : b0);
+           choice_b = 7 : (time0 < 18 ?
+               case
+                  TRUE: (((!(!b0))&(!(FALSE)))|(b0));
+               esac : b0);
+           choice_b = 8 : (time0 < 18 ?
+               case
+                  TRUE: (!(!b0));
+               esac : b0);
+           choice_b = 9 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : b0);
+           choice_b = 10 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(b0)));
+               esac : b0);
+           choice_b = 11 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!b0))&(!(TRUE))));
+               esac : b0);
+           choice_b = 12 : (time0 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : b0);
+           choice_b = 13 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|(b0));
+               esac : b0);
+           choice_b = 14 : (time0 < 18 ?
+               case
+                  TRUE: (((FALSE)|(b0))|((!((FALSE))&(!(!b0)))));
+               esac : b0);
+           choice_b = 15 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(b0));
+               esac : b0);
+           choice_b = 16 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!b0)));
+               esac : b0);
+           choice_b = 17 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!b0)));
+               esac : b0);
+               TRUE: b0;
+           esac;
+    next(c0) := case
+           choice_c = 0 : (time0 < 18 ?
+               case
+                  TRUE: ((c0)&(TRUE));
+               esac : c0);
+           choice_c = 1 : (time0 < 18 ?
+               case
+                  TRUE: ((!(!c0))&(TRUE));
+               esac : c0);
+           choice_c = 2 : (time0 < 18 ?
+               case
+                  TRUE: ((c0)&(!(FALSE)));
+               esac : c0);
+           choice_c = 3 : (time0 < 18 ?
+               case
+                  TRUE: (((!(!c0))&(TRUE))|((c0)&(!(FALSE))));
+               esac : c0);
+           choice_c = 4 : (time0 < 18 ?
+               case
+                  TRUE: ((c0));
+               esac : c0);
+           choice_c = 5 : (time0 < 18 ?
+               case
+                  TRUE: ((c0)|((FALSE)&(!(!c0))));
+               esac : c0);
+           choice_c = 6 : (time0 < 18 ?
+               case
+                  TRUE: ((!(!c0))&(!(FALSE)));
+               esac : c0);
+           choice_c = 7 : (time0 < 18 ?
+               case
+                  TRUE: (((!(!c0))&(!(FALSE)))|(c0));
+               esac : c0);
+           choice_c = 8 : (time0 < 18 ?
+               case
+                  TRUE: (!(!c0));
+               esac : c0);
+           choice_c = 9 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : c0);
+           choice_c = 10 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(c0)));
+               esac : c0);
+           choice_c = 11 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!c0))&(!(TRUE))));
+               esac : c0);
+           choice_c = 12 : (time0 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : c0);
+           choice_c = 13 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|(c0));
+               esac : c0);
+           choice_c = 14 : (time0 < 18 ?
+               case
+                  TRUE: (((FALSE)|(c0))|((!((FALSE))&(!(!c0)))));
+               esac : c0);
+           choice_c = 15 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(c0));
+               esac : c0);
+           choice_c = 16 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!c0)));
+               esac : c0);
+           choice_c = 17 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!c0)));
+               esac : c0);
+               TRUE: c0;
+           esac;
+    next(d0) := case
+           choice_d = 0 : (time0 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)&(TRUE));
+               esac : d0);
+           choice_d = 1 : (time0 < 18 ?
+               case
+                  TRUE: ((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(TRUE));
+               esac : d0);
+           choice_d = 2 : (time0 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)&(!(FALSE)));
+               esac : d0);
+           choice_d = 3 : (time0 < 18 ?
+               case
+                  TRUE: (((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(TRUE))|((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)&(!(FALSE))));
+               esac : d0);
+           choice_d = 4 : (time0 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+               esac : d0);
+           choice_d = 5 : (time0 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)|((FALSE)&(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))));
+               esac : d0);
+           choice_d = 6 : (time0 < 18 ?
+               case
+                  TRUE: ((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(!(FALSE)));
+               esac : d0);
+           choice_d = 7 : (time0 < 18 ?
+               case
+                  TRUE: (((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(!(FALSE)))|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+               esac : d0);
+           choice_d = 8 : (time0 < 18 ?
+               case
+                  TRUE: (!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0));
+               esac : d0);
+           choice_d = 9 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : d0);
+           choice_d = 10 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0)));
+               esac : d0);
+           choice_d = 11 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0))&(!(TRUE))));
+               esac : d0);
+           choice_d = 12 : (time0 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : d0);
+           choice_d = 13 : (time0 < 18 ?
+               case
+                  TRUE: ((FALSE)|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+               esac : d0);
+           choice_d = 14 : (time0 < 18 ?
+               case
+                  TRUE: (((FALSE)|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0))|((!((FALSE))&(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0)))));
+               esac : d0);
+           choice_d = 15 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(((edge_b_d_positive) ? b0 : TRUE) & ((edge_c_d_positive) ? c0 : TRUE) & a0));
+               esac : d0);
+           choice_d = 16 : (time0 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0)));
+               esac : d0);
+           choice_d = 17 : (time0 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(((edge_b_d_positive) ? !b0: TRUE) & ((edge_c_d_positive) ? !c0: TRUE) & !a0)));
+               esac : d0);
+               TRUE: d0;
+           esac;
+    next(time1) := (time1 < 18 ? time1+1 : time1);
+    next(a1) := case
+           choice_a = 0 : (time1 < 18 ?
+               case
+                  TRUE: ((a1)&(TRUE));
+               esac : a1);
+           choice_a = 1 : (time1 < 18 ?
+               case
+                  TRUE: ((!(!a1))&(TRUE));
+               esac : a1);
+           choice_a = 2 : (time1 < 18 ?
+               case
+                  TRUE: ((a1)&(!(FALSE)));
+               esac : a1);
+           choice_a = 3 : (time1 < 18 ?
+               case
+                  TRUE: (((!(!a1))&(TRUE))|((a1)&(!(FALSE))));
+               esac : a1);
+           choice_a = 4 : (time1 < 18 ?
+               case
+                  TRUE: ((a1));
+               esac : a1);
+           choice_a = 5 : (time1 < 18 ?
+               case
+                  TRUE: ((a1)|((FALSE)&(!(!a1))));
+               esac : a1);
+           choice_a = 6 : (time1 < 18 ?
+               case
+                  TRUE: ((!(!a1))&(!(FALSE)));
+               esac : a1);
+           choice_a = 7 : (time1 < 18 ?
+               case
+                  TRUE: (((!(!a1))&(!(FALSE)))|(a1));
+               esac : a1);
+           choice_a = 8 : (time1 < 18 ?
+               case
+                  TRUE: (!(!a1));
+               esac : a1);
+           choice_a = 9 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : a1);
+           choice_a = 10 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(a1)));
+               esac : a1);
+           choice_a = 11 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!a1))&(!(TRUE))));
+               esac : a1);
+           choice_a = 12 : (time1 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : a1);
+           choice_a = 13 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|(a1));
+               esac : a1);
+           choice_a = 14 : (time1 < 18 ?
+               case
+                  TRUE: (((FALSE)|(a1))|((!((FALSE))&(!(!a1)))));
+               esac : a1);
+           choice_a = 15 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(a1));
+               esac : a1);
+           choice_a = 16 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!a1)));
+               esac : a1);
+           choice_a = 17 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!a1)));
+               esac : a1);
+               TRUE: a1;
+           esac;
+    next(b1) := case
+           choice_b = 0 : (time1 < 18 ?
+               case
+                  TRUE: ((b1)&(TRUE));
+               esac : b1);
+           choice_b = 1 : (time1 < 18 ?
+               case
+                  TRUE: ((!(!b1))&(TRUE));
+               esac : b1);
+           choice_b = 2 : (time1 < 18 ?
+               case
+                  TRUE: ((b1)&(!(FALSE)));
+               esac : b1);
+           choice_b = 3 : (time1 < 18 ?
+               case
+                  TRUE: (((!(!b1))&(TRUE))|((b1)&(!(FALSE))));
+               esac : b1);
+           choice_b = 4 : (time1 < 18 ?
+               case
+                  TRUE: ((b1));
+               esac : b1);
+           choice_b = 5 : (time1 < 18 ?
+               case
+                  TRUE: ((b1)|((FALSE)&(!(!b1))));
+               esac : b1);
+           choice_b = 6 : (time1 < 18 ?
+               case
+                  TRUE: ((!(!b1))&(!(FALSE)));
+               esac : b1);
+           choice_b = 7 : (time1 < 18 ?
+               case
+                  TRUE: (((!(!b1))&(!(FALSE)))|(b1));
+               esac : b1);
+           choice_b = 8 : (time1 < 18 ?
+               case
+                  TRUE: (!(!b1));
+               esac : b1);
+           choice_b = 9 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : b1);
+           choice_b = 10 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(b1)));
+               esac : b1);
+           choice_b = 11 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!b1))&(!(TRUE))));
+               esac : b1);
+           choice_b = 12 : (time1 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : b1);
+           choice_b = 13 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|(b1));
+               esac : b1);
+           choice_b = 14 : (time1 < 18 ?
+               case
+                  TRUE: (((FALSE)|(b1))|((!((FALSE))&(!(!b1)))));
+               esac : b1);
+           choice_b = 15 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(b1));
+               esac : b1);
+           choice_b = 16 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!b1)));
+               esac : b1);
+           choice_b = 17 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!b1)));
+               esac : b1);
+               TRUE: b1;
+           esac;
+    next(c1) := case
+           choice_c = 0 : (time1 < 18 ?
+               case
+                  TRUE: ((c1)&(TRUE));
+               esac : c1);
+           choice_c = 1 : (time1 < 18 ?
+               case
+                  TRUE: ((!(!c1))&(TRUE));
+               esac : c1);
+           choice_c = 2 : (time1 < 18 ?
+               case
+                  TRUE: ((c1)&(!(FALSE)));
+               esac : c1);
+           choice_c = 3 : (time1 < 18 ?
+               case
+                  TRUE: (((!(!c1))&(TRUE))|((c1)&(!(FALSE))));
+               esac : c1);
+           choice_c = 4 : (time1 < 18 ?
+               case
+                  TRUE: ((c1));
+               esac : c1);
+           choice_c = 5 : (time1 < 18 ?
+               case
+                  TRUE: ((c1)|((FALSE)&(!(!c1))));
+               esac : c1);
+           choice_c = 6 : (time1 < 18 ?
+               case
+                  TRUE: ((!(!c1))&(!(FALSE)));
+               esac : c1);
+           choice_c = 7 : (time1 < 18 ?
+               case
+                  TRUE: (((!(!c1))&(!(FALSE)))|(c1));
+               esac : c1);
+           choice_c = 8 : (time1 < 18 ?
+               case
+                  TRUE: (!(!c1));
+               esac : c1);
+           choice_c = 9 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : c1);
+           choice_c = 10 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(c1)));
+               esac : c1);
+           choice_c = 11 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!c1))&(!(TRUE))));
+               esac : c1);
+           choice_c = 12 : (time1 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : c1);
+           choice_c = 13 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|(c1));
+               esac : c1);
+           choice_c = 14 : (time1 < 18 ?
+               case
+                  TRUE: (((FALSE)|(c1))|((!((FALSE))&(!(!c1)))));
+               esac : c1);
+           choice_c = 15 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(c1));
+               esac : c1);
+           choice_c = 16 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!c1)));
+               esac : c1);
+           choice_c = 17 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!c1)));
+               esac : c1);
+               TRUE: c1;
+           esac;
+    next(d1) := case
+           choice_d = 0 : (time1 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)&(TRUE));
+               esac : d1);
+           choice_d = 1 : (time1 < 18 ?
+               case
+                  TRUE: ((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(TRUE));
+               esac : d1);
+           choice_d = 2 : (time1 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)&(!(FALSE)));
+               esac : d1);
+           choice_d = 3 : (time1 < 18 ?
+               case
+                  TRUE: (((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(TRUE))|((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)&(!(FALSE))));
+               esac : d1);
+           choice_d = 4 : (time1 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+               esac : d1);
+           choice_d = 5 : (time1 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)|((FALSE)&(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))));
+               esac : d1);
+           choice_d = 6 : (time1 < 18 ?
+               case
+                  TRUE: ((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(!(FALSE)));
+               esac : d1);
+           choice_d = 7 : (time1 < 18 ?
+               case
+                  TRUE: (((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(!(FALSE)))|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+               esac : d1);
+           choice_d = 8 : (time1 < 18 ?
+               case
+                  TRUE: (!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1));
+               esac : d1);
+           choice_d = 9 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : d1);
+           choice_d = 10 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1)));
+               esac : d1);
+           choice_d = 11 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1))&(!(TRUE))));
+               esac : d1);
+           choice_d = 12 : (time1 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : d1);
+           choice_d = 13 : (time1 < 18 ?
+               case
+                  TRUE: ((FALSE)|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+               esac : d1);
+           choice_d = 14 : (time1 < 18 ?
+               case
+                  TRUE: (((FALSE)|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1))|((!((FALSE))&(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1)))));
+               esac : d1);
+           choice_d = 15 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(((edge_b_d_positive) ? b1 : TRUE) & ((edge_c_d_positive) ? c1 : TRUE) & a1));
+               esac : d1);
+           choice_d = 16 : (time1 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1)));
+               esac : d1);
+           choice_d = 17 : (time1 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(((edge_b_d_positive) ? !b1: TRUE) & ((edge_c_d_positive) ? !c1: TRUE) & !a1)));
+               esac : d1);
+               TRUE: d1;
+           esac;
+    next(time2) := (time2 < 18 ? time2+1 : time2);
+    next(a2) := case
+           choice_a = 0 : (time2 < 18 ?
+               case
+                  TRUE: ((a2)&(TRUE));
+               esac : a2);
+           choice_a = 1 : (time2 < 18 ?
+               case
+                  TRUE: ((!(!a2))&(TRUE));
+               esac : a2);
+           choice_a = 2 : (time2 < 18 ?
+               case
+                  TRUE: ((a2)&(!(FALSE)));
+               esac : a2);
+           choice_a = 3 : (time2 < 18 ?
+               case
+                  TRUE: (((!(!a2))&(TRUE))|((a2)&(!(FALSE))));
+               esac : a2);
+           choice_a = 4 : (time2 < 18 ?
+               case
+                  TRUE: ((a2));
+               esac : a2);
+           choice_a = 5 : (time2 < 18 ?
+               case
+                  TRUE: ((a2)|((FALSE)&(!(!a2))));
+               esac : a2);
+           choice_a = 6 : (time2 < 18 ?
+               case
+                  TRUE: ((!(!a2))&(!(FALSE)));
+               esac : a2);
+           choice_a = 7 : (time2 < 18 ?
+               case
+                  TRUE: (((!(!a2))&(!(FALSE)))|(a2));
+               esac : a2);
+           choice_a = 8 : (time2 < 18 ?
+               case
+                  TRUE: (!(!a2));
+               esac : a2);
+           choice_a = 9 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : a2);
+           choice_a = 10 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(a2)));
+               esac : a2);
+           choice_a = 11 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!a2))&(!(TRUE))));
+               esac : a2);
+           choice_a = 12 : (time2 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : a2);
+           choice_a = 13 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|(a2));
+               esac : a2);
+           choice_a = 14 : (time2 < 18 ?
+               case
+                  TRUE: (((FALSE)|(a2))|((!((FALSE))&(!(!a2)))));
+               esac : a2);
+           choice_a = 15 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(a2));
+               esac : a2);
+           choice_a = 16 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!a2)));
+               esac : a2);
+           choice_a = 17 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!a2)));
+               esac : a2);
+               TRUE: a2;
+           esac;
+    next(b2) := case
+           choice_b = 0 : (time2 < 18 ?
+               case
+                  TRUE: ((b2)&(TRUE));
+               esac : b2);
+           choice_b = 1 : (time2 < 18 ?
+               case
+                  TRUE: ((!(!b2))&(TRUE));
+               esac : b2);
+           choice_b = 2 : (time2 < 18 ?
+               case
+                  TRUE: ((b2)&(!(FALSE)));
+               esac : b2);
+           choice_b = 3 : (time2 < 18 ?
+               case
+                  TRUE: (((!(!b2))&(TRUE))|((b2)&(!(FALSE))));
+               esac : b2);
+           choice_b = 4 : (time2 < 18 ?
+               case
+                  TRUE: ((b2));
+               esac : b2);
+           choice_b = 5 : (time2 < 18 ?
+               case
+                  TRUE: ((b2)|((FALSE)&(!(!b2))));
+               esac : b2);
+           choice_b = 6 : (time2 < 18 ?
+               case
+                  TRUE: ((!(!b2))&(!(FALSE)));
+               esac : b2);
+           choice_b = 7 : (time2 < 18 ?
+               case
+                  TRUE: (((!(!b2))&(!(FALSE)))|(b2));
+               esac : b2);
+           choice_b = 8 : (time2 < 18 ?
+               case
+                  TRUE: (!(!b2));
+               esac : b2);
+           choice_b = 9 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : b2);
+           choice_b = 10 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(b2)));
+               esac : b2);
+           choice_b = 11 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!b2))&(!(TRUE))));
+               esac : b2);
+           choice_b = 12 : (time2 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : b2);
+           choice_b = 13 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|(b2));
+               esac : b2);
+           choice_b = 14 : (time2 < 18 ?
+               case
+                  TRUE: (((FALSE)|(b2))|((!((FALSE))&(!(!b2)))));
+               esac : b2);
+           choice_b = 15 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(b2));
+               esac : b2);
+           choice_b = 16 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!b2)));
+               esac : b2);
+           choice_b = 17 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!b2)));
+               esac : b2);
+               TRUE: b2;
+           esac;
+    next(c2) := case
+           choice_c = 0 : (time2 < 18 ?
+               case
+                  TRUE: ((c2)&(TRUE));
+               esac : c2);
+           choice_c = 1 : (time2 < 18 ?
+               case
+                  TRUE: ((!(!c2))&(TRUE));
+               esac : c2);
+           choice_c = 2 : (time2 < 18 ?
+               case
+                  TRUE: ((c2)&(!(FALSE)));
+               esac : c2);
+           choice_c = 3 : (time2 < 18 ?
+               case
+                  TRUE: (((!(!c2))&(TRUE))|((c2)&(!(FALSE))));
+               esac : c2);
+           choice_c = 4 : (time2 < 18 ?
+               case
+                  TRUE: ((c2));
+               esac : c2);
+           choice_c = 5 : (time2 < 18 ?
+               case
+                  TRUE: ((c2)|((FALSE)&(!(!c2))));
+               esac : c2);
+           choice_c = 6 : (time2 < 18 ?
+               case
+                  TRUE: ((!(!c2))&(!(FALSE)));
+               esac : c2);
+           choice_c = 7 : (time2 < 18 ?
+               case
+                  TRUE: (((!(!c2))&(!(FALSE)))|(c2));
+               esac : c2);
+           choice_c = 8 : (time2 < 18 ?
+               case
+                  TRUE: (!(!c2));
+               esac : c2);
+           choice_c = 9 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : c2);
+           choice_c = 10 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(c2)));
+               esac : c2);
+           choice_c = 11 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(!c2))&(!(TRUE))));
+               esac : c2);
+           choice_c = 12 : (time2 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : c2);
+           choice_c = 13 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|(c2));
+               esac : c2);
+           choice_c = 14 : (time2 < 18 ?
+               case
+                  TRUE: (((FALSE)|(c2))|((!((FALSE))&(!(!c2)))));
+               esac : c2);
+           choice_c = 15 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(c2));
+               esac : c2);
+           choice_c = 16 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(!c2)));
+               esac : c2);
+           choice_c = 17 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(!c2)));
+               esac : c2);
+               TRUE: c2;
+           esac;
+    next(d2) := case
+           choice_d = 0 : (time2 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)&(TRUE));
+               esac : d2);
+           choice_d = 1 : (time2 < 18 ?
+               case
+                  TRUE: ((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(TRUE));
+               esac : d2);
+           choice_d = 2 : (time2 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)&(!(FALSE)));
+               esac : d2);
+           choice_d = 3 : (time2 < 18 ?
+               case
+                  TRUE: (((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(TRUE))|((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)&(!(FALSE))));
+               esac : d2);
+           choice_d = 4 : (time2 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+               esac : d2);
+           choice_d = 5 : (time2 < 18 ?
+               case
+                  TRUE: ((((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)|((FALSE)&(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))));
+               esac : d2);
+           choice_d = 6 : (time2 < 18 ?
+               case
+                  TRUE: ((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(!(FALSE)));
+               esac : d2);
+           choice_d = 7 : (time2 < 18 ?
+               case
+                  TRUE: (((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(!(FALSE)))|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+               esac : d2);
+           choice_d = 8 : (time2 < 18 ?
+               case
+                  TRUE: (!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2));
+               esac : d2);
+           choice_d = 9 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE));
+               esac : d2);
+           choice_d = 10 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(TRUE))&(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2)));
+               esac : d2);
+           choice_d = 11 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|((!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2))&(!(TRUE))));
+               esac : d2);
+           choice_d = 12 : (time2 < 18 ?
+               case
+                  TRUE: (!(FALSE));
+               esac : d2);
+           choice_d = 13 : (time2 < 18 ?
+               case
+                  TRUE: ((FALSE)|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+               esac : d2);
+           choice_d = 14 : (time2 < 18 ?
+               case
+                  TRUE: (((FALSE)|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2))|((!((FALSE))&(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2)))));
+               esac : d2);
+           choice_d = 15 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(((edge_b_d_positive) ? b2 : TRUE) & ((edge_c_d_positive) ? c2 : TRUE) & a2));
+               esac : d2);
+           choice_d = 16 : (time2 < 18 ?
+               case
+                  TRUE: ((TRUE)|(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2)));
+               esac : d2);
+           choice_d = 17 : (time2 < 18 ?
+               case
+                  TRUE: ((!(FALSE))|(!(((edge_b_d_positive) ? !b2: TRUE) & ((edge_c_d_positive) ? !c2: TRUE) & !a2)));
+               esac : d2);
+               TRUE: d2;
+           esac;
+LTLSPEC !F (Experiment0 & time0 = 18 & Experiment1 & time1 = 18 & Experiment2 & time2 = 18);
