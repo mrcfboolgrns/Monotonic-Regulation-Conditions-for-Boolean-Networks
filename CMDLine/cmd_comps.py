@@ -41,26 +41,19 @@ def start_simulation(filename, mode, max_solutions):
     # split second line by comma and extract the right-hand side (the Boolean formula)
     with open(filename, 'r') as f:
         content = f.readlines()
-        target_component, formula = content[1].strip().split(',')
-        acceptors, repressors = utilsZ3.extract_variables_mono(formula)
-        variables = copy.deepcopy(acceptors)
-        variables.update(repressors)
         
-        output = reg_exp.startmatrix(None, None, target_component=target_component, formula=formula, variables=variables)
+        for line in content[1:]:
+            target_component, formula = line.strip().split(',')
+            
+            acceptors, repressors = utilsZ3.extract_variables_mono(formula)
+            variables = copy.deepcopy(acceptors)
+            variables.update(repressors)
+            
+            output = reg_exp.startmatrix(None, None, target_component=target_component, formula=formula, variables=variables)
 
-        print("Simulation Output:")
-        for row in output:
-            print(row)
-        # Convert input_expr to Z3 Boolean expression
-        # expr = utilsZ3.parse_expression(formula, variables)
+            print("Simulation Output:")
+            for row in output:
+                print(row)
 
-
-        # a = testingZ3.check_WS(formula)
-        # target_dictionary = {
-        #     "WA": a.get("WA"),
-        #     "SA": a.get("SA"),
-        #     "WR": a.get("WR"),
-        #     "SR": a.get("SR")
-        # }
         
     
