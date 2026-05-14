@@ -7,4 +7,6 @@ pillow
 re
 argparse
 itertools
+argparse
+tkinter
 z3
